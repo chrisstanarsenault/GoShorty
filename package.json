@@ -1,0 +1,11 @@
+{
+  "name": "chriss-new-url-shortener-app",
+  "version": "1.0.0",
+  "description": "A remake of the TinyApp app from Lighthouse Labs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chris Arsenault",
+  "license": "ISC"
+}
