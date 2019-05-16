@@ -13,12 +13,16 @@
 
 <body style="font-size:20px; padding:50px;">
   <!-- Add EJS code here -->
+  <% include ./partials/_header.ejs %>
+
+  <h2>My URLs</h2>
+
   <ul>
   <% for (prop in urls) { %>
-
     <li><a href="#"><%= `${prop}` %></a> : <%= `${urls[prop]}` %></li>
   <% } %>
   </ul>
+
 </body>
 
 </html>
