@@ -18,8 +18,11 @@
   <h2>My URLs</h2>
 
   <ul>
-  <% for (prop in urls) { %>
+  <% for (let prop in urls) { %>
     <li><a href="#"><%= `${prop}` %></a> : <%= `${urls[prop]}` %></li>
+    <form method="POST" action="/urls/<%= `${prop}` %>/delete">
+      <input type="submit" value="DELETE" />
+    </form>
   <% } %>
   </ul>
 
