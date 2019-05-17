@@ -4,9 +4,10 @@
   "description": "A remake of the TinyApp app from Lighthouse Labs",
   "main": "express_server.js",
   "scripts": {
+    "start": "nodemon express_server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Chris Arsenault",
+  "author": "Chris Arsenault chrisstanarsenault@gmail.com",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
