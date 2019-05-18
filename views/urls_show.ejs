@@ -2,3 +2,7 @@
 
 <p>ShortURL for: <%= longURL %></p>
 <%= shortURL %>
+<form method="POST" action="/urls/<%= shortURL %>/update">
+  <input type="text" name="updateURL" placeholder="http://" />
+  <input type="submit" value="EDIT" />
+</form>

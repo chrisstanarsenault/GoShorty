@@ -19,10 +19,12 @@
 
   <ul>
   <% for (let prop in urls) { %>
-    <li><a href="#"><%= `${prop}` %></a> : <%= `${urls[prop]}` %></li>
-    <form method="POST" action="/urls/<%= `${prop}` %>/delete">
-      <input type="submit" value="DELETE" />
-    </form>
+    <li><a href="#"><%= `${prop}` %></a> : <%= `${urls[prop]}` %>
+      <a href="/urls/<%= `${prop}` %>">EDIT</a>
+      <form method="POST" action="/urls/<%= `${prop}` %>/delete">
+        <input type="submit" value="DELETE" />
+      </form>
+    </li>
   <% } %>
   </ul>
 
