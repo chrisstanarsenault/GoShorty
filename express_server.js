@@ -38,7 +38,6 @@ const generateRandomString = () => {
   return result;
 };
 
-
 // Checks to make sure that neither the email or password text field is blank
 // when submitted.  Returns true if one is missing.
 const missingNameOrEmailOrPassword = (req, res) => {
@@ -54,17 +53,6 @@ const checkForSameEmail = (req, res) => {
   for (const user in users) {
     if (req.body.email === users[user].email) {
       return true;
-    }
-  }
-  return false;
-};
-
-const confirmEmailAndPassword = (req, res) => {
-  for (const user in users) {
-    if (req.body.email === users[user].email) {
-      if (req.body.password === users[user.password]) {
-        return true;
-      }
     }
   }
   return false;
@@ -96,7 +84,11 @@ app.get("/urls/new", (req, res) => {
     longURL: urlDatabase[req.params.shortURL],
     user_id: req.cookies.user_id,
   };
-  res.render("urls_new", templateVars);
+  if (req.cookies.user_id) {
+    res.render("urls_new", templateVars);
+  } else {
+    res.render("urls_login", templateVars);
+  }
 });
 
 app.get("/urls/:shortURL", (req, res) => {
