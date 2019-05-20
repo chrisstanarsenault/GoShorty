@@ -12,6 +12,22 @@ const urlDatabase = {
   "9sm5xK": "https://www.google.com",
 };
 
+const users = {
+  userRandomID: {
+    id: "userRandomID",
+    username: "Jake",
+    email: "user@example.com",
+    password: "purple-monkey-dinosaur",
+  },
+  user2RandomID: {
+    id: "user2RandomID",
+    username: "Frank",
+    email: "user2@example.com",
+    password: "dishwasher-funk",
+  },
+};
+
+// Generates a random 6 character string.
 const generateRandomString = () => {
   let result = '';
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -20,6 +36,38 @@ const generateRandomString = () => {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;
+};
+
+
+// Checks to make sure that neither the email or password text field is blank
+// when submitted.  Returns true if one is missing.
+const missingNameOrEmailOrPassword = (req, res) => {
+  if (!req.body.username || !req.body.email || !req.body.password) {
+    return true;
+  }
+  return false;
+};
+
+// Checks through users object to make sure the same email has not been used already.
+// If email has been used, will return true.
+const checkForSameEmail = (req, res) => {
+  for (const user in users) {
+    if (req.body.email === users[user].email) {
+      return true;
+    }
+  }
+  return false;
+};
+
+const confirmEmailAndPassword = (req, res) => {
+  for (const user in users) {
+    if (req.body.email === users[user].email) {
+      if (req.body.password === users[user.password]) {
+        return true;
+      }
+    }
+  }
+  return false;
 };
 
 app.set("view engine", "ejs");
@@ -31,7 +79,7 @@ app.get("/", (req, res) => {
 app.get("/urls", (req, res) => {
   const templateVars = {
     urls: urlDatabase,
-    username: req.cookies.username,
+    user_id: req.cookies.user_id,
   };
   res.render("urls_index", templateVars);
 });
@@ -46,7 +94,7 @@ app.get("/urls/new", (req, res) => {
   const templateVars = {
     shortURL: req.params.shortURL,
     longURL: urlDatabase[req.params.shortURL],
-    username: req.cookies.username,
+    user_id: req.cookies.user_id,
   };
   res.render("urls_new", templateVars);
 });
@@ -55,7 +103,7 @@ app.get("/urls/:shortURL", (req, res) => {
   const templateVars = {
     shortURL: req.params.shortURL,
     longURL: urlDatabase[req.params.shortURL],
-    username: req.cookies.username,
+    user_id: req.cookies.user_id,
   };
   res.render("urls_show", templateVars);
 });
@@ -76,13 +124,56 @@ app.get("/u/:shortURL", (req, res) => {
   res.redirect(longURL);
 });
 
+app.get("/login", (req, res) => {
+  const templateVars = {
+    shortURL: req.params.shortURL,
+    longURL: urlDatabase[req.params.shortURL],
+    user_id: req.cookies.user_id,
+  };
+  res.render("urls_login", templateVars);
+});
+
 app.post("/login", (req, res) => {
-  res.cookie("username", req.body.username);
-  res.redirect("/urls");
+  if (req.body.email && req.body.password) {
+    for (const user in users) {
+      if (req.body.email === users[user].email && req.body.password === users[user].password) {
+        res.cookie("user_id", users[user]);
+        res.redirect("/urls");
+      }
+    }
+  }
+  res.status(403).send(`Ooops, check your email or password!  Try <a href="/login">logging in</a> again!`);
 });
 
 app.post("/logout", (req, res) => {
-  res.clearCookie('username');
+  res.clearCookie('user_id');
+  res.redirect("/urls");
+});
+
+app.get("/register", (req, res) => {
+  const templateVars = {
+    shortURL: req.params.shortURL,
+    longURL: urlDatabase[req.params.shortURL],
+    user_id: req.cookies.user_id,
+  };
+  res.render("urls_registration", templateVars);
+});
+
+app.post("/register", (req, res) => {
+  const randomUserID = generateRandomString();
+  if (missingNameOrEmailOrPassword(req, res)) {
+    res.status(400).send("You are missing your name, email or password");
+  } else if (checkForSameEmail(req, res)) {
+    res.status(400).send("This email has been used before");
+  } else {
+    users[randomUserID] = {
+      id: randomUserID,
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    };
+  }
+  res.cookie("user_id", users[randomUserID]);
   res.redirect("/urls");
 });
 
