@@ -130,17 +130,26 @@ app.get("/urls/:shortURL", (req, res) => {
 });
 
 app.post("/urls/:shortURL/delete", (req, res) => {
-  delete urlDatabase[req.params.shortURL];
+  if (!isUserLoggedIn(req) || req.cookies.user_id.id !== urlDatabase[req.params.shortURL].userID) {
+    res.send("You are not authorized to delete this!");
+  } else {
+    delete urlDatabase[req.params.shortURL];
+  }
   res.redirect("/urls");
 });
 
 app.post("/urls/:shortURL/update", (req, res) => {
-  urlDatabase[req.params.shortURL] = req.body.updateURL;
-  res.redirect(`/urls/${req.params.shortURL}`);
+  if (!isUserLoggedIn(req) || req.cookies.user_id.id !== urlDatabase[req.params.shortURL].userID) {
+    res.send("You are not authorized to update this!");
+  } else {
+    urlDatabase[req.params.shortURL].longURL = req.body.updateURL;
+    res.redirect(`/urls/${req.params.shortURL}`);
+  }
 });
 
 app.get("/u/:shortURL", (req, res) => {
-  const longURL = urlDatabase[req.params.shortURL];
+  const { longURL } = urlDatabase[req.params.shortURL];
+  console.log(urlDatabase[req.params.shortURL]);
   res.redirect(longURL);
 });
 
