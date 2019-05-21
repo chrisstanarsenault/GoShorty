@@ -8,8 +8,8 @@ app.use(cookieParser());
 const PORT = 8080; // default port 8080;
 
 const urlDatabase = {
-  b2xVn2: "https://www.lighthouselabs.ca",
-  "9sm5xK": "https://www.google.com",
+  b2xVn2: { longURL: "https://www.lighthouselabs.ca", userID: "userRandomID" },
+  "9sm5xK": { longURL: "https://www.google.com", userID: "user2RandomID" },
 };
 
 const users = {
@@ -58,6 +58,24 @@ const checkForSameEmail = (req, res) => {
   return false;
 };
 
+// filters through urlDatabase and returns only the URLs belonging to that user
+const urlsForUsers = (id) => {
+  const userURLs = {};
+  for (const shortURL in urlDatabase) {
+    if (urlDatabase[shortURL].userID === id) {
+      userURLs[shortURL] = urlDatabase[shortURL];
+    }
+  }
+  return userURLs;
+};
+
+const isUserLoggedIn = (req, res) => {
+  if (req.cookies.user_id) {
+    return true;
+  }
+  return false;
+};
+
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
@@ -65,11 +83,15 @@ app.get("/", (req, res) => {
 });
 
 app.get("/urls", (req, res) => {
-  const templateVars = {
-    urls: urlDatabase,
-    user_id: req.cookies.user_id,
-  };
-  res.render("urls_index", templateVars);
+  if (isUserLoggedIn(req)) {
+    const templateVars = {
+      urls: urlsForUsers(req.cookies.user_id.id),
+      user_id: req.cookies.user_id,
+    };
+    res.render("urls_index", templateVars);
+  } else {
+    res.send(`Please <a href="/login">log in</a> or <a href="/register">register</a> first!`);
+  }
 });
 
 app.post("/urls", (req, res) => {
@@ -78,7 +100,6 @@ app.post("/urls", (req, res) => {
     longURL: req.body.longURL,
     userID: req.cookies.user_id.id,
   };
-  console.log(urlDatabase);
   res.redirect(`/urls/${randomShortURL}`);
 });
 
@@ -101,7 +122,11 @@ app.get("/urls/:shortURL", (req, res) => {
     longURL: urlDatabase[req.params.shortURL].longURL,
     user_id: req.cookies.user_id,
   };
-  res.render("urls_show", templateVars);
+  if (!isUserLoggedIn(req) || req.cookies.user_id.id != urlDatabase[req.params.shortURL].userID) {
+    res.send("You are not authorized to see this!");
+  } else {
+    res.render("urls_show", templateVars);
+  }
 });
 
 app.post("/urls/:shortURL/delete", (req, res) => {
@@ -110,7 +135,6 @@ app.post("/urls/:shortURL/delete", (req, res) => {
 });
 
 app.post("/urls/:shortURL/update", (req, res) => {
-  console.log(req.body);
   urlDatabase[req.params.shortURL] = req.body.updateURL;
   res.redirect(`/urls/${req.params.shortURL}`);
 });

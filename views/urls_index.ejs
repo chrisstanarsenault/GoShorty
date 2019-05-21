@@ -18,10 +18,10 @@
   <h2>My URLs</h2>
 
   <ul>
-  <% for (let prop in urls) { %>
-    <li><a href="#"><%= `${prop}` %></a> : <%= `${urls[prop]}` %>
-      <a href="/urls/<%= `${prop}` %>">EDIT</a>
-      <form method="POST" action="/urls/<%= `${prop}` %>/delete">
+  <% for (let shortURL in urls) { %>
+    <li><a href="#"><%= `${shortURL}` %></a> : <%= `${urls[shortURL].longURL}` %>
+      <a href="/urls/<%= `${shortURL}` %>">EDIT</a>
+      <form method="POST" action="/urls/<%= `${shortURL}` %>/delete">
         <input type="submit" value="DELETE" />
       </form>
     </li>
