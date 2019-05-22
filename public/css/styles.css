@@ -1,0 +1,17 @@
+* {
+  font-size: 10px; }
+
+body {
+  margin: 3rem; }
+
+#nav-main-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  #nav-main-container .appTitle {
+    font-size: 5rem; }
+  #nav-main-container .loginRegisterLink {
+    font-size: 3rem; }
+    #nav-main-container .loginRegisterLink a {
+      font-size: 2rem;
+      text-decoration: none; }
