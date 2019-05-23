@@ -1,17 +1,38 @@
 * {
-  font-size: 10px; }
-
-body {
-  margin: 3rem; }
+  font-size: 10px;
+  margin: 0; }
 
 #nav-main-container {
   display: flex;
   align-items: center;
-  justify-content: space-between; }
+  justify-content: space-between;
+  background-color: lightgrey;
+  width: 100%;
+  height: 15vh; }
   #nav-main-container .appTitle {
-    font-size: 5rem; }
-  #nav-main-container .loginRegisterLink {
-    font-size: 3rem; }
-    #nav-main-container .loginRegisterLink a {
+    font-size: 5rem;
+    margin-left: 4rem; }
+  #nav-main-container .loginRegisterContainer {
+    font-size: 3rem;
+    margin-right: 4rem; }
+    #nav-main-container .loginRegisterContainer a {
       font-size: 2rem;
-      text-decoration: none; }
+      text-decoration: none;
+      color: black; }
+    #nav-main-container .loginRegisterContainer a:nth-child(1) {
+      padding-right: 1.5rem; }
+    #nav-main-container .loginRegisterContainer a:nth-child(2) {
+      margin-left: 1.5rem; }
+
+.loggedInNameContainer {
+  display: flex;
+  flex-direction: column;
+  margin-right: 4rem;
+  align-items: center; }
+  .loggedInNameContainer p {
+    font-size: 3rem; }
+  .loggedInNameContainer .logOutButtonContainer {
+    margin-top: 2rem; }
+    .loggedInNameContainer .logOutButtonContainer .logOutButton {
+      width: 10rem;
+      font-size: 5rem; }

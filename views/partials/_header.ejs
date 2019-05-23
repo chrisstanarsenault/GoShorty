@@ -1,12 +1,14 @@
 <nav id="nav-main-container">
-<div id="appTitleContainer"><h1 class="appTitle" >Shorten R Us</h1></div>
+<div id="appTitleContainer"><h1 class="appTitle" >Go Shorty</h1></div>
 <% if (user_id) { %>
-  <p>Oh, hey there <%= user_id.username %>!</p>
-  <form method="POST" action="/logout">
-    <input type="submit" value="LOGOUT" />
-  </form>
+  <div class="loggedInNameContainer">
+    <p>Hey <%= user_id.username %>!</p>
+    <form class="logOutButtonContainer" method="POST" action="/logout">
+      <input class="logOutButton" type="submit" value="LOGOUT" />
+    </form>
+  </div>
 <% } else { %>
-  <p class="loginRegisterLink"><a href="/login">Login </a> | <a href="/register">Register </a></p>
+  <p class="loginRegisterContainer"><a href="/login">Login </a> | <a href="/register">Register </a></p>
 <% } %>
 </nav>
 <!-- <p><a href="#">Click here</a> to create a new short URL!</p> -->
