@@ -372,6 +372,20 @@ height: 15vh;
     margin-left: 4rem;
   }
 
+  .nav-menu-container {
+    display: flex;
+
+    li {
+      padding-right: 15rem;
+      list-style-type: none;
+
+      a {
+        font-size: 3rem;
+        text-decoration: none;
+      }
+    }
+  }
+
   .loginRegisterContainer {
     font-size: 3rem;
     margin-right: 4rem;

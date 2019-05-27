@@ -318,6 +318,14 @@ template {
   #nav-main-container .appTitle {
     font-size: 5rem;
     margin-left: 4rem; }
+  #nav-main-container .nav-menu-container {
+    display: flex; }
+    #nav-main-container .nav-menu-container li {
+      padding-right: 15rem;
+      list-style-type: none; }
+      #nav-main-container .nav-menu-container li a {
+        font-size: 3rem;
+        text-decoration: none; }
   #nav-main-container .loginRegisterContainer {
     font-size: 3rem;
     margin-right: 4rem; }

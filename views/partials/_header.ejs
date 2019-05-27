@@ -1,6 +1,10 @@
 <nav id="nav-main-container">
 <div id="appTitleContainer"><h1 class="appTitle" >Go Shorty</h1></div>
 <% if (user_id) { %>
+  <div class="nav-menu-container">
+    <li><a href="/urls">Show My URLs</a></li>
+    <li><a href="/urls/new">Create a URL</a></li>
+  </div>
   <div class="loggedInNameContainer">
     <p>Hey <%= user_id.username %>!</p>
     <form class="logOutButtonContainer" method="POST" action="/logout">
