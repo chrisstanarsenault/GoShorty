@@ -1,5 +1,5 @@
 {
-  "name": "Go Shorty",
+  "name": "go-shorty",
   "version": "1.0.0",
   "description": "A remake of the TinyApp app from Lighthouse Labs",
   "main": "express_server.js",

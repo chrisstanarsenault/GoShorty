@@ -15,20 +15,20 @@
 <body>
   <!-- Add EJS code here -->
   <% include ./partials/_header.ejs %>
-
-  <h2>My URLs</h2>
+  <div class="main-container">
+  <h2 class="page-title">My URLs</h2>
 
   <ul>
   <% for (let shortURL in urls) { %>
-    <li><a href="#"><%= `${shortURL}` %></a> : <%= `${urls[shortURL].longURL}` %>
-      <a href="/urls/<%= `${shortURL}` %>">EDIT</a>
+    <li><a href="/u/<%= `${shortURL}` %>"><%= `${shortURL}` %></a> : <%= `${urls[shortURL].longURL}` %>
+      <button class="edit-button"><a href="/urls/<%= `${shortURL}` %>">EDIT</a></button>
       <form method="POST" action="/urls/<%= `${shortURL}` %>/delete">
-        <input type="submit" value="DELETE" />
+        <input class="delete-button" type="submit" value="DELETE" />
       </form>
     </li>
   <% } %>
   </ul>
-
+  </div>
 </body>
 
 </html>
