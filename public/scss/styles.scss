@@ -347,6 +347,8 @@ template {
 [hidden] {
   display: none;
 }
+//========================================================
+
 
 // CSS Starts Here
 // ===============================
@@ -356,16 +358,30 @@ template {
   font-family: sans-serif;
 }
 
+// General styling
+// ===============================
+.page-title {
+  font-size: 5rem;
+  margin-bottom: 2rem;
+}
+
+.page-main-container {
+  margin: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 // _header styling
 // ===============================
-
 #nav-main-container {
-display: flex;
-align-items: center;
-justify-content: space-between;
-background-color: lightgrey;
-width: 100%;
-height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: lightgrey;
+  width: 100%;
+  height: 15vh;
 
   .appTitle {
     font-size: 5rem;
@@ -432,54 +448,94 @@ height: 15vh;
 // urls_index styling
 // =========================
 
-.main-container {
-  margin: 4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+ul {
+  list-style-type: none;
 
-  .page-title {
-    font-size: 5rem;
-    margin-bottom: 2rem;
+  a, li {
+    font-size: 3rem;
+    text-decoration: none;
   }
 
-  ul {
-    list-style-type: none;
+  li {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
 
-    a, li {
-      font-size: 3rem;
-      text-decoration: none;
+    .delete-button {
+      font-size: 2rem;
+      margin-left: 2rem;
+      padding: 1rem;
+      border: 1px solid black;
+      border-radius: 4px;
+      background-color: lightcoral;
     }
 
-    li {
-      display: flex;
-      align-items: center;
-      margin-top: 2rem;
+    .edit-button {
+      margin-left: 2rem;
+      font-size: 2rem;
+      padding: 1rem;
+      border: 1px solid black;
+      border-radius: 4px;
+      background-color: lightblue;
 
-      .delete-button {
+      a {
         font-size: 2rem;
-        margin-left: 2rem;
-        padding: 1rem;
-        border: 1px solid black;
-        border-radius: 4px;
-        background-color: lightcoral;
-      }
-
-      .edit-button {
-        margin-left: 2rem;
-        font-size: 2rem;
-        padding: 1rem;
-        border: 1px solid black;
-        border-radius: 4px;
-        background-color: lightblue;
-
-        a {
-          font-size: 2rem;
-          text-decoration: none;
-        }
+        text-decoration: none;
       }
     }
   }
 }
+
+// urls_login styles
+// ============================
+
+#login-main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // border: 1px solid red;
+  height: 70vh;
+
+.full-login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid black;
+  padding-top: 4rem;
+  width: 40vw;
+  height: 40vh;
+  top: -2rem;
+
+  h4 {
+    font-size: 3rem;
+    justify-self: flex-start;
+  }
+
+  .login-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+  .login-input {
+    height: 3rem;
+    font-size: 2rem;
+    margin: 1rem 1rem !important;
+  }
+
+  .login-submit {
+    font-size: 2rem;
+    padding: 1rem;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: lightblue;
+    width: 20rem;
+    margin-top: 2rem;
+  }
+}
+}
+}
+
+
 

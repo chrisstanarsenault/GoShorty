@@ -308,6 +308,17 @@ template {
   margin: 0;
   font-family: sans-serif; }
 
+.page-title {
+  font-size: 5rem;
+  margin-bottom: 2rem; }
+
+.page-main-container {
+  margin: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
 #nav-main-container {
   display: flex;
   align-items: center;
@@ -354,38 +365,65 @@ template {
       border: 1px solid black;
       border-radius: 4px; }
 
-.main-container {
-  margin: 4rem;
+ul {
+  list-style-type: none; }
+  ul a, ul li {
+    font-size: 3rem;
+    text-decoration: none; }
+  ul li {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem; }
+    ul li .delete-button {
+      font-size: 2rem;
+      margin-left: 2rem;
+      padding: 1rem;
+      border: 1px solid black;
+      border-radius: 4px;
+      background-color: lightcoral; }
+    ul li .edit-button {
+      margin-left: 2rem;
+      font-size: 2rem;
+      padding: 1rem;
+      border: 1px solid black;
+      border-radius: 4px;
+      background-color: lightblue; }
+      ul li .edit-button a {
+        font-size: 2rem;
+        text-decoration: none; }
+
+#login-main-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center; }
-  .main-container .page-title {
-    font-size: 5rem;
-    margin-bottom: 2rem; }
-  .main-container ul {
-    list-style-type: none; }
-    .main-container ul a, .main-container ul li {
+  align-items: center;
+  height: 70vh; }
+  #login-main-container .full-login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    padding-top: 4rem;
+    width: 40vw;
+    height: 40vh;
+    top: -2rem; }
+    #login-main-container .full-login-container h4 {
       font-size: 3rem;
-      text-decoration: none; }
-    .main-container ul li {
+      justify-self: flex-start; }
+    #login-main-container .full-login-container .login-input-container {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      margin-top: 2rem; }
-      .main-container ul li .delete-button {
+      justify-content: center;
+      margin: auto; }
+      #login-main-container .full-login-container .login-input-container .login-input {
+        height: 3rem;
         font-size: 2rem;
-        margin-left: 2rem;
-        padding: 1rem;
-        border: 1px solid black;
-        border-radius: 4px;
-        background-color: lightcoral; }
-      .main-container ul li .edit-button {
-        margin-left: 2rem;
+        margin: 1rem 1rem !important; }
+      #login-main-container .full-login-container .login-input-container .login-submit {
         font-size: 2rem;
         padding: 1rem;
         border: 1px solid black;
         border-radius: 4px;
-        background-color: lightblue; }
-        .main-container ul li .edit-button a {
-          font-size: 2rem;
-          text-decoration: none; }
+        background-color: lightblue;
+        width: 20rem;
+        margin-top: 2rem; }
