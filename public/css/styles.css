@@ -306,7 +306,11 @@ template {
 * {
   font-size: 10px;
   margin: 0;
-  font-family: sans-serif; }
+  font-family: Avenir,Open Sans,Helvetica Neue,Arial,Helvetica,Verdana,sans-serif;
+  color: white; }
+
+body {
+  background-image: linear-gradient(to right, #2193b0, #6dd5ed); }
 
 .page-title {
   font-size: 5rem;
@@ -323,9 +327,10 @@ template {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: lightgrey;
+  background-color: none;
   width: 100%;
-  height: 15vh; }
+  height: 15vh;
+  border-bottom: 1px dashed black; }
   #nav-main-container .appTitle {
     font-size: 5rem;
     margin-left: 4rem; }
@@ -341,7 +346,7 @@ template {
     font-size: 3rem;
     margin-right: 4rem; }
     #nav-main-container .loginRegisterContainer a {
-      font-size: 2rem;
+      font-size: 3rem;
       text-decoration: none;
       color: black; }
     #nav-main-container .loginRegisterContainer a:nth-child(1) {
@@ -357,40 +362,58 @@ template {
   .loggedInNameContainer p {
     font-size: 3rem; }
   .loggedInNameContainer .logOutButtonContainer {
-    margin-top: 2rem; }
+    margin-top: 2rem;
+    background-color: #6dd5ed; }
     .loggedInNameContainer .logOutButtonContainer .logOutButton {
       width: 12rem;
       height: 4.3rem;
       font-size: 2rem;
       border: 1px solid black;
-      border-radius: 4px; }
+      border-radius: 10px;
+      color: #6dd5ed;
+      font-weight: bold;
+      box-shadow: -2px 3px 10px -5px black; }
 
-ul {
-  list-style-type: none; }
-  ul a, ul li {
-    font-size: 3rem;
-    text-decoration: none; }
-  ul li {
-    display: flex;
-    align-items: center;
-    margin-top: 2rem; }
-    ul li .delete-button {
-      font-size: 2rem;
-      margin-left: 2rem;
-      padding: 1rem;
-      border: 1px solid black;
-      border-radius: 4px;
-      background-color: lightcoral; }
-    ul li .edit-button {
-      margin-left: 2rem;
-      font-size: 2rem;
-      padding: 1rem;
-      border: 1px solid black;
-      border-radius: 4px;
-      background-color: lightblue; }
-      ul li .edit-button a {
+.urls-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  width: 60%;
+  height: 50vh;
+  align-items: center;
+  background-color: white;
+  box-shadow: -7px 6px 30px 1px black;
+  margin-top: 10rem; }
+  .urls-container h2 {
+    margin-top: 2rem;
+    color: black; }
+  .urls-container ul {
+    list-style-type: none; }
+    .urls-container ul a, .urls-container ul li {
+      font-size: 3rem;
+      text-decoration: none;
+      color: black; }
+    .urls-container ul li {
+      display: flex;
+      align-items: center;
+      margin-top: 2rem; }
+      .urls-container ul li .delete-button {
         font-size: 2rem;
-        text-decoration: none; }
+        margin-left: 2rem;
+        padding: 1rem;
+        border: 1px solid black;
+        border-radius: 4px;
+        background-color: lightcoral; }
+      .urls-container ul li .edit-button {
+        margin-left: 2rem;
+        font-size: 2rem;
+        padding: 1rem;
+        border: 1px solid black;
+        border-radius: 4px;
+        background-color: lightblue; }
+        .urls-container ul li .edit-button a {
+          font-size: 2rem;
+          text-decoration: none; }
 
 #login-main-container {
   display: flex;
@@ -401,14 +424,17 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid grey;
     padding-top: 4rem;
     width: 40vw;
     height: 40vh;
-    top: -2rem; }
+    top: -2rem;
+    background-color: white;
+    box-shadow: -7px 6px 30px 1px black; }
     #login-main-container .full-login-container h4 {
       font-size: 3rem;
-      justify-self: flex-start; }
+      justify-self: flex-start;
+      color: black; }
     #login-main-container .full-login-container .login-input-container {
       display: flex;
       flex-direction: column;
@@ -416,9 +442,11 @@ ul {
       justify-content: center;
       margin: auto; }
       #login-main-container .full-login-container .login-input-container .login-input {
-        height: 3rem;
+        height: 4rem;
         font-size: 2rem;
-        margin: 1rem 1rem !important; }
+        margin: 2rem 1rem !important;
+        color: black;
+        border: 1px solid black; }
       #login-main-container .full-login-container .login-input-container .login-submit {
         font-size: 2rem;
         padding: 1rem;

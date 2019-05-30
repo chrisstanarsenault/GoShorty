@@ -16,6 +16,7 @@
   <!-- Add EJS code here -->
   <% include ./partials/_header.ejs %>
   <div class="index-main-container page-main-container">
+    <div class="urls-container">
     <h2 class="page-title">My URLs</h2>
     <ul>
     <% for (let shortURL in urls) { %>
@@ -27,6 +28,7 @@
       </li>
     <% } %>
     </ul>
+    </div>
   </div>
 </body>
 
