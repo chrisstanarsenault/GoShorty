@@ -12,7 +12,7 @@
 <body>
   <% include partials/_header %>
   <div class="login-main-container page-main-container">
-    <div class="short-url-container login-input-container">
+    <div class="short-url-container login-input-container" id="short-url-container">
       <p><span class="shortURL-target"><%= shortURL %></span> is the ShortURL for: <span class="longURL-target"><%= longURL %></span></p>
       <p class="show-edit-tagline">Put in a new URL below to assign the shortURL to it instead</p>
       <form method="POST" action="/urls/<%= shortURL %>/update">
