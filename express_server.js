@@ -9,7 +9,7 @@ app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const PORT = 8080; // default port 8080;
+const PORT = process.env.PORT || 8080; // run on designated Heroku port or default local port if not available;
 
 app.use(cookieSession({
   name: 'session',
