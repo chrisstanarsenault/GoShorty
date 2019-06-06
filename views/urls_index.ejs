@@ -9,6 +9,7 @@
   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="/css/styles.css" type="text/css">
+  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
     <title>Go Shorty - Your URLs</title>
 </head>
 
@@ -17,17 +18,17 @@
   <% include ./partials/_header.ejs %>
   <div class="index-main-container page-main-container">
     <div class="urls-container">
-    <h2 class="page-title">My URLs</h2>
-    <ul>
-    <% for (let shortURL in urls) { %>
-      <li><a href="/u/<%= `${shortURL}` %>"><%= `${shortURL}` %></a> : <%= `${urls[shortURL].longURL}` %>
-        <button class="edit-button"><a href="/urls/<%= `${shortURL}` %>">EDIT</a></button>
-        <form method="POST" action="/urls/<%= `${shortURL}` %>/delete">
-          <input class="delete-button" type="submit" value="DELETE" />
-        </form>
-      </li>
-    <% } %>
-    </ul>
+      <h2 class="page-title">My URLs</h2>
+      <ul>
+      <% for (let shortURL in urls) { %>
+        <li><a href="/u/<%= `${shortURL}` %>"><%= `${shortURL}` %></a> : <%= `${urls[shortURL].longURL}` %>
+          <button class="edit-button"><a href="/urls/<%= `${shortURL}` %>">EDIT</a></button>
+          <form method="POST" action="/urls/<%= `${shortURL}` %>/delete">
+            <input class="delete-button" type="submit" value="DELETE" />
+          </form>
+        </li>
+      <% } %>
+      </ul>
     </div>
   </div>
 </body>

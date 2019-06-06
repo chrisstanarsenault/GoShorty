@@ -4,27 +4,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/styles.css" type="text/css">
-
-  <title>Shorten R Us - New Url</title>
+  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+  <title>Go Shorty - New Url</title>
 </head>
 
-<body style="font-size:20px; padding:50px;">
-
+<body>
   <% include partials/_header %>
-
-  <h3>Create a Sweet And Short URL</h3>
-  <form class="form-inline" action="/urls" method="POST">
-    <div class="form-group mb-2">
-      <label for="longURL">Enter a URL:</label>
-      <input class="form-control" type="text" name="longURL" placeholder="http://" style="width: 300px; margin: 1em">
-      <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="new-url-main-container page-main-container">
+    <div class="new-url-container">
+      <h2 class="page-title">Create a Short URL</h2>
+      <div class="new-form-container">
+        <form action="/urls" method="POST">
+          <!-- <div> -->
+            <!-- <label for="longURL">Enter a URL:</label> -->
+            <input class="login-input" type="text" name="longURL" placeholder="https://">
+            <button type="submit" class="login-submit">Submit</button>
+          <!-- </div> -->
+        </form>
+      </div>
     </div>
-  </form>
+  </div>
 </body>
 
 </html>
