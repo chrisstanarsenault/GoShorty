@@ -89,7 +89,7 @@ const isUserLoggedIn = (req, res) => {
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  res.send(generateRandomString());
+  res.redirect("/urls");
 });
 
 app.get("/urls", (req, res) => {
