@@ -4,23 +4,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/styles.css" type="text/css">
-
+  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
   <title>Go Shorty - Shortened URL Info</title>
 </head>
 
-<body style="font-size:20px; padding:50px;">
-
+<body>
   <% include partials/_header %>
-
-<p>ShortURL for: <%= longURL %></p>
-<%= shortURL %>
-<form method="POST" action="/urls/<%= shortURL %>/update">
-  <input type="text" name="updateURL" placeholder="http://" />
-  <input type="submit" value="EDIT" />
-</form>
+  <div class="login-main-container page-main-container">
+    <div class="short-url-container login-input-container">
+      <p><span class="shortURL-target"><%= shortURL %></span> is the ShortURL for: <span class="longURL-target"><%= longURL %></span></p>
+      <p class="show-edit-tagline">Put in a new URL below to assign the shortURL to it instead</p>
+      <form method="POST" action="/urls/<%= shortURL %>/update">
+        <div class="input-container">
+          <input class="login-input" type="text" name="updateURL" placeholder="http://" />
+          <input class="login-submit" type="submit" value="EDIT" />
+        </div>
+      </form>
+    </div>
+  </div>
 </body>

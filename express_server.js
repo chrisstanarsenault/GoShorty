@@ -102,6 +102,7 @@ app.get("/urls", (req, res) => {
     console.log(req.body);
   } else {
     res.send(`Please <a href="/login">log in</a> or <a href="/register">register</a> first!`);
+    // res.redirect("/login");
     console.log(req.body);
   }
 });
@@ -184,6 +185,7 @@ app.post("/login", (req, res) => {
     }
   }
   res.status(403).send(`Ooops, check your email or password!  Try <a href="/login">logging in</a> again!`);
+  // res.status(403).redirect("/login");
 });
 
 app.post("/logout", (req, res) => {
