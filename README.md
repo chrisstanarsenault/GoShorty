@@ -1,6 +1,6 @@
-# Tiny-App Project
+# GoShorty
 
-This is my fullstack app called Tiny-App, a URL shortener, much like the idea of Bit.ly, Deck.ly, etc. Just a much simplier, uglier version of it :)
+GoShorty, a URL shortener, much like the idea of Bit.ly, Deck.ly, etc. Just a much simpler, uglier version of it. With a function login/registering section, as well as using Bcrypt for password hashing and rendering happening serverside using node/express.
 
 [Click here](https://go-shorty-app.herokuapp.com/) for a live version hosted on Heroku.
 
@@ -14,7 +14,7 @@ This is my fullstack app called Tiny-App, a URL shortener, much like the idea of
 
 ## What you'll need to do to get up and running!
 
-- Use 'npm install' to install all the dependancies listed above
+- Use 'npm install' to install all the dependencies listed above
 - Spin up that server by running 'node express_server.js"
 - Use the browser of your choice, and go to 'localhost:8080'
 - And lastly, and most important: Have fun!
