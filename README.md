@@ -25,10 +25,10 @@ Login Page
 !["Screenshot of login page"](https://github.com/chrisstanarsenault/GoShorty/blob/master/public/images/GS-login-screen-ss.png?raw=true)
 
 Registration Page
-!["Screenshot of registration page"](https://github.com/chrisstanarsenault/tiny-app/blob/master/public/images/GS-registration-screen-ss.png?raw=true)
+!["Screenshot of registration page"](https://github.com/chrisstanarsenault/GoShorty/blob/master/public/images/GS-register-screen-ss.png?raw=true)
 
 Show All Urls Page
-!["Screenshot of Show All Urls page"](https://github.com/chrisstanarsenault/tiny-app/blob/master/public/images/GS-show-urls-ss.png?raw=true)
+!["Screenshot of Show All Urls page"](https://github.com/chrisstanarsenault/GoShorty/blob/master/public/images/GS-show-urls-ss.png?raw=true)
 
 Show Create URL Page
-!["Screenshot of Create URL page"](https://github.com/chrisstanarsenault/tiny-app/blob/master/public/images/GS-create-url-ss.png?raw=true)
+!["Screenshot of Create URL page"](https://github.com/chrisstanarsenault/GoShorty/blob/master/public/images/GS-create-url-ss.png?raw=true)
