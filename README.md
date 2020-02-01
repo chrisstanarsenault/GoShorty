@@ -30,5 +30,5 @@ Registration Page
 Show All Urls Page
 !["Screenshot of Show All Urls page"](https://github.com/chrisstanarsenault/GoShorty/blob/master/public/images/GS-show-urls-ss.png?raw=true)
 
-Show Create URL Page
+Create URL Page
 !["Screenshot of Create URL page"](https://github.com/chrisstanarsenault/GoShorty/blob/master/public/images/GS-create-url-ss.png?raw=true)
